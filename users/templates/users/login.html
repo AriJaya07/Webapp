@@ -1,0 +1,31 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+    <div class="jumbotron">
+        <h1 class="display-3">Track your learning.</h1>
+
+        <p class="lead">
+            That is made simple Webapp by <strong>AriJaya</strong>. Make your own Blog to shere your knowledge, and keep a list of the 
+            topics you're learning about. Whenever you learn something new
+            about a topic, make an entry summarizing what you've learned to share your experience from all over the world.</p>
+    </div>
+
+    <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Log In</legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Login</button>
+            </div>
+        </form>
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                Need An Account? <a class="ml-2" href="{% url 'register' %}">Sign Up Now</a>
+            </small>
+        </div>
+    </div>
+{% endblock content %}
